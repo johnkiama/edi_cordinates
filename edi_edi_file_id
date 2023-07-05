@@ -1,0 +1,32 @@
+import os, sys
+
+#def editedi(indir):
+#    edi = [ i for i in os.listdir(indir) if i.endswith(".edi")]
+#    return edi
+
+def edi_now(path):
+  
+  global edi
+  edi = "CHMT01.edi"
+#  my_files = editedi(path)
+#  for n in my_files:
+#     print(n)
+  with open(os.path.join(path, edi)) as f, open(os.path.join(path, "cc.edi"), "w+") as outfile:
+    reader = f.readlines()
+    for lines in reader:
+#      lines = lines.strip()
+      if lines.startswith("    DATAID"):
+        edi_name = lines.split("=")
+        name = edi_name[1]
+        print(name)
+        edi2  = '"' + edi + '"' + '\n'
+        print(edi2)
+        lines = lines.replace(name, edi2)
+        print(lines)
+      outfile.write(lines)
+#os.rename("cc.edi", edi)  
+  
+edi_now("/home/seismics/python-again")
+
+#print(edi)
+#os.rename("cc.edi", edi)
