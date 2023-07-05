@@ -1,5 +1,5 @@
 import os, sys
-
+#This script is for editing the ID of edi files
 #def editedi(indir):
 #    edi = [ i for i in os.listdir(indir) if i.endswith(".edi")]
 #    return edi
